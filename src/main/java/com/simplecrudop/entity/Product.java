@@ -1,6 +1,23 @@
 package com.simplecrudop.entity;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
 public class Product {
 
-    private int product_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String name;
+    private double price;
+    private int quantity;
+
 }

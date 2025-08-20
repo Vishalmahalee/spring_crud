@@ -1,12 +1,9 @@
 package com.simplecrudop.dto;
 
 import lombok.*;
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
 @Builder
 public class ProductDto {
 

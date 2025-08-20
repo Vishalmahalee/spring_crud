@@ -2,6 +2,7 @@ package com.simplecrudop.serviceImpl;
 
 import com.simplecrudop.dto.ProductDto;
 import com.simplecrudop.entity.Product;
+import com.simplecrudop.exception.ResourceNotFoundException;
 import com.simplecrudop.repository.ProductRepository;
 import com.simplecrudop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,17 @@ public class ProductImpl implements ProductService {
         Product product = convertToEntity(productDto);
         return convertToDTO(productRepository.save(product));
     }
+
+    @Override
+    public ProductDto getProductById(Long prodcutId) {
+        int x = 10/0;
+        Product product = productRepository.findById(prodcutId)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + prodcutId
+
+                ));
+        return convertToDTO(product);
+    }
+
 }
 
 

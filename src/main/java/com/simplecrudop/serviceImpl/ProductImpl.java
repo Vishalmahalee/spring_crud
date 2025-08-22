@@ -42,7 +42,7 @@ public class ProductImpl implements ProductService {
     public ProductDto getProductById(Long prodcutId) {
         int x = 10/0;
         Product product = productRepository.findById(prodcutId)
-                .orElseThrow(() -> new ResourceNotFoundException("Product not found with the id: " + prodcutId));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found with given id DB: " + prodcutId));
         return convertToDTO(product);
     }
 

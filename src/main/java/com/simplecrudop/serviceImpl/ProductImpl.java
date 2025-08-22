@@ -44,6 +44,7 @@ public class ProductImpl implements ProductService {
         Product product = productRepository.findById(prodcutId)
                 .orElseThrow(()-> new ResourceNotFoundException("Product not found with given id DB:"));
 
+
         System.out.println("please check this product");
         return convertToDTO(product);
     }
